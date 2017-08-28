@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DKK-T4-Woo" customClass="BudgetCell" customModule="BudgetList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" id="DKK-T4-Woo" customClass="BudgetCell" customModule="BudgetList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DKK-T4-Woo" id="2mu-Gh-nbQ">
@@ -44,12 +44,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft2-7q-pXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="-214"/>
+            <point key="canvasLocation" x="876" y="-214.54272863568218"/>
         </scene>
         <!--ADD BUDGET-->
         <scene sceneID="n6T-nG-Ff6">
             <objects>
-                <viewController id="Sb8-UF-4Sg" sceneMemberID="viewController">
+                <viewController id="Sb8-UF-4Sg" customClass="AddBudgetViewController" customModule="BudgetList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r45-1M-Bg5"/>
                         <viewControllerLayoutGuide type="bottom" id="M0D-wt-sDN"/>
@@ -92,6 +92,10 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="budgetAmount" destination="9qL-gP-k35" id="ky0-uu-f9t"/>
+                        <outlet property="budgetName" destination="LOH-35-XU3" id="2zW-Xh-T1w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pox-eP-boi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pSB-eb-K4q" userLabel="Exit" sceneMemberID="exit"/>
