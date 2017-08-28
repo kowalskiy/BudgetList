@@ -25,7 +25,24 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DKK-T4-Woo" id="2mu-Gh-nbQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-5v-cPD">
+                                            <rect key="frame" x="21" y="0.0" width="332" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="bottom" secondItem="2mu-Gh-nbQ" secondAttribute="bottomMargin" id="AyV-FP-mDv"/>
+                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="leading" secondItem="2mu-Gh-nbQ" secondAttribute="leadingMargin" constant="13" id="Gcg-81-ZDH"/>
+                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="centerX" secondItem="2mu-Gh-nbQ" secondAttribute="centerX" id="IZs-nu-fBu"/>
+                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="top" secondItem="2mu-Gh-nbQ" secondAttribute="top" id="lT2-Ao-RqC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="budgetNameLabel" destination="LK0-5v-cPD" id="FXi-Mi-0uT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -70,15 +87,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0n-vj-SQM">
+                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.34152487529999997" green="0.76095872350000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveContent:" destination="Sb8-UF-4Sg" eventType="touchUpInside" id="rcJ-1x-W1b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LOH-35-XU3" firstAttribute="trailing" secondItem="v7L-V0-JHt" secondAttribute="trailingMargin" id="J0X-JI-zMg"/>
-                            <constraint firstItem="LOH-35-XU3" firstAttribute="leading" secondItem="9qL-gP-k35" secondAttribute="leading" id="NaI-xU-3e4"/>
-                            <constraint firstItem="LOH-35-XU3" firstAttribute="trailing" secondItem="9qL-gP-k35" secondAttribute="trailing" id="T0g-bp-D8Q"/>
-                            <constraint firstItem="9qL-gP-k35" firstAttribute="top" secondItem="LOH-35-XU3" secondAttribute="bottom" constant="44" id="aFc-rL-lxa"/>
-                            <constraint firstItem="LOH-35-XU3" firstAttribute="leading" secondItem="v7L-V0-JHt" secondAttribute="leadingMargin" id="qXX-vc-Wzo"/>
-                            <constraint firstItem="LOH-35-XU3" firstAttribute="top" secondItem="r45-1M-Bg5" secondAttribute="bottom" constant="69" id="sbW-rg-UWU"/>
+                            <constraint firstItem="9qL-gP-k35" firstAttribute="top" secondItem="LOH-35-XU3" secondAttribute="bottom" constant="44" id="3ik-wN-4OF"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="top" secondItem="r45-1M-Bg5" secondAttribute="bottom" constant="69" id="4kn-fr-Tgw"/>
+                            <constraint firstItem="9qL-gP-k35" firstAttribute="leading" secondItem="W0n-vj-SQM" secondAttribute="leading" id="8Hk-3Z-8FK"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="trailing" secondItem="9qL-gP-k35" secondAttribute="trailing" id="BdX-8q-Lxz"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="leading" secondItem="9qL-gP-k35" secondAttribute="leading" id="Mg7-fT-YLp"/>
+                            <constraint firstItem="W0n-vj-SQM" firstAttribute="centerY" secondItem="v7L-V0-JHt" secondAttribute="centerY" id="Nce-Qh-wzu"/>
+                            <constraint firstItem="9qL-gP-k35" firstAttribute="trailing" secondItem="W0n-vj-SQM" secondAttribute="trailing" id="TZw-oE-wP2"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="trailing" secondItem="v7L-V0-JHt" secondAttribute="trailingMargin" id="bAH-Yu-9ws"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="leading" secondItem="v7L-V0-JHt" secondAttribute="leadingMargin" id="nRD-Uo-JPH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ADD BUDGET" id="MTN-lk-Ce0">
@@ -87,9 +117,6 @@
                             <connections>
                                 <segue destination="pSB-eb-K4q" kind="unwind" unwindAction="cancelTappedWithSegue:" id="DRh-b1-hrP"/>
                             </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GQ4-B9-db8">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -100,7 +127,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pox-eP-boi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pSB-eb-K4q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1618" y="-179"/>
+            <point key="canvasLocation" x="1616.8" y="-179.46026986506749"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="agC-o0-a4F">

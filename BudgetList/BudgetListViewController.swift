@@ -8,13 +8,18 @@
 
 import UIKit
 
-class BudgetListViewController: UITableViewController {
+class BudgetListViewController: UITableViewController, BudgetDelegate {
     
-    var budget = ["one", "two", "three"]
+    var budget = [Budget]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? AddBudgetViewController {
+            destinationViewController.delegate = self
+        }
     }
 
     // MARK: - UITableViewDataSource
@@ -23,19 +28,23 @@ class BudgetListViewController: UITableViewController {
         return budget.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        cell.textLabel?.text = budget[indexPath.row]
-    
-        return cell
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let budgets = budget[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
+            cell.budgetNameLabel.text = budgets.nameField
+            return cell
+    }
 
-    
     @IBAction func cancelTapped(segue: UIStoryboardSegue)
     {}
 
+    func enteredBudgetData(info: String) {
+        budget.append(Budget(nameField: info, amountField: 0))
+        tableView.reloadData()
+        }
 }
