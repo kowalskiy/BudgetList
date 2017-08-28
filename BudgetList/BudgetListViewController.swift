@@ -54,8 +54,8 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         let row = indexPath.row
         print("ROW: \(row)")
         
-        let destination = BudgetDetailsViewController()
-        navigationController?.pushViewController(destination, animated: true)
+//        let destination = BudgetDetailsViewController()
+//        navigationController?.pushViewController(destination, animated: true)
     }
     
     
