@@ -10,7 +10,8 @@ import UIKit
 
 class BudgetListViewController: UITableViewController {
     
-    
+    @IBAction func cancelTapped(segue: UIStoryboardSegue) {
+        }
     
     
     

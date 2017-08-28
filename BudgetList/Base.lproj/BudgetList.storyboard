@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gxn-wK-y35">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,12 +36,67 @@
                     <navigationItem key="navigationItem" title="BUDGET" id="ng9-zd-3TS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CVa-ja-qM8">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Sb8-UF-4Sg" kind="push" id="m7d-Xy-xfI"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft2-7q-pXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="10.344827586206897"/>
+            <point key="canvasLocation" x="876" y="-214"/>
+        </scene>
+        <!--ADD BUDGET-->
+        <scene sceneID="n6T-nG-Ff6">
+            <objects>
+                <viewController id="Sb8-UF-4Sg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r45-1M-Bg5"/>
+                        <viewControllerLayoutGuide type="bottom" id="M0D-wt-sDN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v7L-V0-JHt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AMOUNT" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qL-gP-k35">
+                                <rect key="frame" x="16" y="207" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOH-35-XU3">
+                                <rect key="frame" x="16" y="133" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="trailing" secondItem="v7L-V0-JHt" secondAttribute="trailingMargin" id="J0X-JI-zMg"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="leading" secondItem="9qL-gP-k35" secondAttribute="leading" id="NaI-xU-3e4"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="trailing" secondItem="9qL-gP-k35" secondAttribute="trailing" id="T0g-bp-D8Q"/>
+                            <constraint firstItem="9qL-gP-k35" firstAttribute="top" secondItem="LOH-35-XU3" secondAttribute="bottom" constant="44" id="aFc-rL-lxa"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="leading" secondItem="v7L-V0-JHt" secondAttribute="leadingMargin" id="qXX-vc-Wzo"/>
+                            <constraint firstItem="LOH-35-XU3" firstAttribute="top" secondItem="r45-1M-Bg5" secondAttribute="bottom" constant="69" id="sbW-rg-UWU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ADD BUDGET" id="MTN-lk-Ce0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Rgu-U0-EXp">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="pSB-eb-K4q" kind="unwind" unwindAction="cancelTappedWithSegue:" id="DRh-b1-hrP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GQ4-B9-db8">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pox-eP-boi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pSB-eb-K4q" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1618" y="-179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="agC-o0-a4F">
@@ -63,7 +119,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zq8-Zi-QIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152.80000000000001" y="10.344827586206897"/>
+            <point key="canvasLocation" x="161" y="-213"/>
         </scene>
     </scenes>
 </document>
