@@ -17,6 +17,7 @@
 		E7F77FDF1F540B9300576125 /* BudgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FDD1F540B9300576125 /* BudgetCell.swift */; };
 		E7F77FE01F540B9300576125 /* BudgetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7F77FDE1F540B9300576125 /* BudgetCell.xib */; };
 		E7F77FE21F540BBE00576125 /* AddBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE11F540BBE00576125 /* AddBudgetViewController.swift */; };
+		E7F77FE41F544C8700576125 /* BudgetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE31F544C8700576125 /* BudgetDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E7F77FDD1F540B9300576125 /* BudgetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetCell.swift; sourceTree = "<group>"; };
 		E7F77FDE1F540B9300576125 /* BudgetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BudgetCell.xib; sourceTree = "<group>"; };
 		E7F77FE11F540BBE00576125 /* AddBudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBudgetViewController.swift; sourceTree = "<group>"; };
+		E7F77FE31F544C8700576125 /* BudgetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				E7F77FC41F54096400576125 /* BudgetListViewController.swift */,
 				E7F77FE11F540BBE00576125 /* AddBudgetViewController.swift */,
+				E7F77FE31F544C8700576125 /* BudgetDetailsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				E7F77FE21F540BBE00576125 /* AddBudgetViewController.swift in Sources */,
 				E7F77FCB1F54096400576125 /* BudgetList.xcdatamodeld in Sources */,
 				E7F77FC51F54096400576125 /* BudgetListViewController.swift in Sources */,
+				E7F77FE41F544C8700576125 /* BudgetDetailsViewController.swift in Sources */,
 				E7F77FDC1F540B5500576125 /* Budget.swift in Sources */,
 				E7F77FC31F54096400576125 /* AppDelegate.swift in Sources */,
 			);

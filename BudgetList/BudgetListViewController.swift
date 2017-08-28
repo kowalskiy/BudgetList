@@ -46,5 +46,20 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     func enteredBudgetData(info: String) {
         budget.append(Budget(nameField: info, amountField: 0))
         tableView.reloadData()
-        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        let row = indexPath.row
+        print("ROW: \(row)")
+        
+        let destination = BudgetDetailsViewController()
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    
 }
+
+
+
