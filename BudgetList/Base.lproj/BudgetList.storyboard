@@ -92,30 +92,34 @@
                     <navigationItem key="navigationItem" id="CVm-rI-WwL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Apo-Z4-1SC">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="ZQH-Yz-NKO" kind="push" id="VfI-zg-CwX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehN-Qa-Tli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="607"/>
+            <point key="canvasLocation" x="876" y="480"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="YoR-lN-VbO">
+        <!--Add Expenses View Controller-->
+        <scene sceneID="TTA-Tl-36P">
             <objects>
-                <viewController id="pJd-n9-ZDJ" sceneMemberID="viewController">
+                <viewController id="ZQH-Yz-NKO" customClass="AddExpensesViewController" customModule="BudgetList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PJl-3s-5WB"/>
-                        <viewControllerLayoutGuide type="bottom" id="Svb-Us-dp9"/>
+                        <viewControllerLayoutGuide type="top" id="fB7-UG-XRs"/>
+                        <viewControllerLayoutGuide type="bottom" id="7hT-U8-c4s"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7Hf-8V-BVn">
+                    <view key="view" contentMode="scaleToFill" id="OlJ-9B-vfo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fmJ-Ji-wgU"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xhm-sW-624" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="52s-Ga-Sf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="607"/>
+            <point key="canvasLocation" x="1684" y="480"/>
         </scene>
         <!--ADD BUDGET-->
         <scene sceneID="n6T-nG-Ff6">
@@ -133,7 +137,7 @@
                                 <rect key="frame" x="16" y="207" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOH-35-XU3">
                                 <rect key="frame" x="16" y="133" width="343" height="30"/>
@@ -181,7 +185,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pox-eP-boi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pSB-eb-K4q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1610" y="-214"/>
+            <point key="canvasLocation" x="1684" y="-214"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="agC-o0-a4F">
