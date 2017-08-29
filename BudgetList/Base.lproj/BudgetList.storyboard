@@ -19,29 +19,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LabelCell" id="DKK-T4-Woo" customClass="BudgetCell" customModule="BudgetList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LabelCell" textLabel="ODB-8d-BYf" detailTextLabel="qe0-U5-vzP" style="IBUITableViewCellStyleSubtitle" id="DKK-T4-Woo" customClass="BudgetCell" customModule="BudgetList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DKK-T4-Woo" id="2mu-Gh-nbQ">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-5v-cPD">
-                                            <rect key="frame" x="21" y="0.0" width="300" height="35"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ODB-8d-BYf">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qe0-U5-vzP">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="bottom" secondItem="2mu-Gh-nbQ" secondAttribute="bottomMargin" id="AyV-FP-mDv"/>
-                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="leading" secondItem="2mu-Gh-nbQ" secondAttribute="leadingMargin" constant="13" id="Gcg-81-ZDH"/>
-                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="centerX" secondItem="2mu-Gh-nbQ" secondAttribute="centerX" id="IZs-nu-fBu"/>
-                                        <constraint firstItem="LK0-5v-cPD" firstAttribute="top" secondItem="2mu-Gh-nbQ" secondAttribute="top" id="lT2-Ao-RqC"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="budgetNameLabel" destination="LK0-5v-cPD" id="FXi-Mi-0uT"/>
+                                    <outlet property="budgetNameLabel" destination="ODB-8d-BYf" id="dT5-sK-fqt"/>
                                     <segue destination="aAD-Gv-Jiz" kind="push" identifier="showDetails" id="CxX-YL-bUt"/>
                                 </connections>
                             </tableViewCell>

@@ -21,10 +21,11 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
             destinationViewController.delegate = self
         }
         
+        // pass cell's label to detailVC
         let destinationVC = segue.destination as? BudgetDetailsViewController
         let cell = sender as? BudgetCell
-        destinationVC?.navigationItem.title = cell?.budgetNameLabel.text
- }
+        destinationVC?.navigationItem.title = (cell?.budgetNameLabel.text)! + (cell?.detailTextLabel?.text)!
+    }
    
     // MARK: - UITableViewDataSource
     
@@ -41,14 +42,15 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         let budgets = budget[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
             cell.budgetNameLabel.text = budgets.nameField
+            cell.detailTextLabel?.text = String(budgets.amountField)
             return cell
     }
 
     @IBAction func cancelTapped(segue: UIStoryboardSegue)
     {}
 
-    func enteredBudgetData(info: String) {
-        budget.append(Budget(nameField: info, amountField: 0))
+    func enteredBudgetData(info: String, info2: Int) {
+        budget.append(Budget(nameField: info, amountField: info2))
         tableView.reloadData()
     }
     
@@ -61,21 +63,5 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     
     
 }
-
-//        if (segue.identifier == "showDetails") {
-//            if let cell = sender as? BudgetCell?, let row = tableView.indexPath(for: cell!)?.row, let vc = segue.destination as? BudgetDetailsViewController {
-//                vc.title = budget[row]
-//            }
-//        }
-
-
-//        if (segue.identifier == "showDetails") {
-//            var detailsView = segue.destination as! BudgetDetailsViewController
-//            var index = tableView.indexPathForSelectedRow
-//            detailsView.title = budget[index?.row]
-//        }
-//    }
-
-
 
 

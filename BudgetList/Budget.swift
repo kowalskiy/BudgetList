@@ -11,5 +11,5 @@ import Foundation
 struct Budget {
     
     let nameField: String
-    let amountField: Double
+    let amountField: Int
 }

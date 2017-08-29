@@ -11,5 +11,5 @@ import UIKit
 class BudgetCell: UITableViewCell {
 
     @IBOutlet weak var budgetNameLabel: UILabel!
-    
+    @IBOutlet weak var budgetAmountLabel: UILabel!
 }
