@@ -24,7 +24,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         // pass cell's label to detailVC
         let destinationVC = segue.destination as? BudgetDetailsViewController
         let cell = sender as? BudgetCell
-        destinationVC?.navigationItem.title = (cell?.budgetNameLabel.text)! + (cell?.detailTextLabel?.text)!
+        destinationVC?.navigationItem.title = (cell?.budgetNameLabel.text?.capitalized)! + ("  -  $") + (cell?.detailTextLabel?.text)!
     }
    
     // MARK: - UITableViewDataSource
