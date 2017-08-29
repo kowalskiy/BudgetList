@@ -20,8 +20,12 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         if let destinationViewController = segue.destination as? AddBudgetViewController {
             destinationViewController.delegate = self
         }
-    }
-
+        
+        let destinationVC = segue.destination as? BudgetDetailsViewController
+        let cell = sender as? BudgetCell
+        destinationVC?.navigationItem.title = cell?.budgetNameLabel.text
+ }
+   
     // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,13 +57,25 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         print("ROW: \(row)")
-        
-//        let destination = BudgetDetailsViewController()
-//        navigationController?.pushViewController(destination, animated: true)
     }
     
     
 }
+
+//        if (segue.identifier == "showDetails") {
+//            if let cell = sender as? BudgetCell?, let row = tableView.indexPath(for: cell!)?.row, let vc = segue.destination as? BudgetDetailsViewController {
+//                vc.title = budget[row]
+//            }
+//        }
+
+
+//        if (segue.identifier == "showDetails") {
+//            var detailsView = segue.destination as! BudgetDetailsViewController
+//            var index = tableView.indexPathForSelectedRow
+//            detailsView.title = budget[index?.row]
+//        }
+//    }
+
 
 
 

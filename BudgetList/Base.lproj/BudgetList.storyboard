@@ -42,7 +42,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="budgetNameLabel" destination="LK0-5v-cPD" id="FXi-Mi-0uT"/>
-                                    <segue destination="aAD-Gv-Jiz" kind="push" id="CxX-YL-bUt"/>
+                                    <segue destination="aAD-Gv-Jiz" kind="push" identifier="showDetails" id="CxX-YL-bUt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
