@@ -19,6 +19,8 @@
 		E7F77FE21F540BBE00576125 /* AddBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE11F540BBE00576125 /* AddBudgetViewController.swift */; };
 		E7F77FE41F544C8700576125 /* BudgetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE31F544C8700576125 /* BudgetDetailsViewController.swift */; };
 		E7F77FE61F558D1C00576125 /* AddExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE51F558D1C00576125 /* AddExpensesViewController.swift */; };
+		E7F77FE81F5599F800576125 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE71F5599F800576125 /* ExpenseCell.swift */; };
+		E7F77FEA1F55A04700576125 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F77FE91F55A04700576125 /* Expense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		E7F77FE11F540BBE00576125 /* AddBudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBudgetViewController.swift; sourceTree = "<group>"; };
 		E7F77FE31F544C8700576125 /* BudgetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetDetailsViewController.swift; sourceTree = "<group>"; };
 		E7F77FE51F558D1C00576125 /* AddExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpensesViewController.swift; sourceTree = "<group>"; };
+		E7F77FE71F5599F800576125 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		E7F77FE91F55A04700576125 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				E7F77FDB1F540B5500576125 /* Budget.swift */,
+				E7F77FE91F55A04700576125 /* Expense.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -98,8 +103,9 @@
 		E7F77FD91F54098900576125 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E7F77FC61F54096400576125 /* BudgetList.storyboard */,
 				E7F77FDD1F540B9300576125 /* BudgetCell.swift */,
+				E7F77FE71F5599F800576125 /* ExpenseCell.swift */,
+				E7F77FC61F54096400576125 /* BudgetList.storyboard */,
 				E7F77FDE1F540B9300576125 /* BudgetCell.xib */,
 			);
 			name = View;
@@ -196,9 +202,11 @@
 				E7F77FE21F540BBE00576125 /* AddBudgetViewController.swift in Sources */,
 				E7F77FCB1F54096400576125 /* BudgetList.xcdatamodeld in Sources */,
 				E7F77FC51F54096400576125 /* BudgetListViewController.swift in Sources */,
+				E7F77FEA1F55A04700576125 /* Expense.swift in Sources */,
 				E7F77FE41F544C8700576125 /* BudgetDetailsViewController.swift in Sources */,
 				E7F77FE61F558D1C00576125 /* AddExpensesViewController.swift in Sources */,
 				E7F77FDC1F540B5500576125 /* Budget.swift in Sources */,
+				E7F77FE81F5599F800576125 /* ExpenseCell.swift in Sources */,
 				E7F77FC31F54096400576125 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

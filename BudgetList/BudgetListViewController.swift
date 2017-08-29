@@ -30,7 +30,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         // pass cell's label to detailVC
         let destinationVC = segue.destination as? BudgetDetailsViewController
         let cell = sender as? BudgetCell
-        destinationVC?.navigationItem.title = (cell?.budgetNameLabel.text?.capitalized)! + ("  -  $") + (cell?.detailTextLabel?.text)!
+        destinationVC?.navigationItem.title = (cell?.budgetNameLabel.text?.capitalized)! + ("  -  ") + (cell?.detailTextLabel?.text)!
     }
    
     // MARK: - UITableViewDataSource
@@ -48,7 +48,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         let budgets = budget[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
             cell.budgetNameLabel.text = budgets.nameField
-            cell.detailTextLabel?.text = String(budgets.amountField)
+            cell.detailTextLabel?.text = ("$") + String(budgets.amountField)
             return cell
     }
 

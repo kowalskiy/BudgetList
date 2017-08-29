@@ -8,12 +8,18 @@
 
 import UIKit
 
-class BudgetDetailsViewController: UITableViewController {
+class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     
-    var budgetPassed: Budget!
-   
+    var expense = [Expense]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? AddExpensesViewController {
+            destinationViewController.delegate = self
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,23 +31,25 @@ class BudgetDetailsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return expense.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let expenses = expense[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell") as! ExpenseCell
+        cell.textLabel?.text = expenses.expenseName
+        cell.detailTextLabel?.text = ("$") + String(expenses.expenseAmount)
         return cell
     }
-    */
-
+    
+    func enteredExpenseData(info: String, info2: Int) {
+        expense.append(Expense(expenseName: info, expenseAmount: info2))
+        tableView.reloadData()
+    }
 }
+

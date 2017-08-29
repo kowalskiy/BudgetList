@@ -75,12 +75,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lkk-qM-0qD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenseCell" textLabel="LBY-v2-CJe" detailTextLabel="xNO-jG-aCR" style="IBUITableViewCellStyleValue1" id="lkk-qM-0qD" customClass="ExpenseCell" customModule="BudgetList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lkk-qM-0qD" id="PcZ-CD-IPT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LBY-v2-CJe">
+                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xNO-jG-aCR">
+                                            <rect key="frame" x="316" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -143,24 +159,44 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFr-4n-1Gz">
+                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.84313725490000002" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gby-7I-3v4"/>
+                                </constraints>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveExpenseContent:" destination="ZQH-Yz-NKO" eventType="touchUpInside" id="xhe-1s-78I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CdS-Px-nYq" firstAttribute="leading" secondItem="wne-h4-mlI" secondAttribute="leading" id="1vw-5C-N7l"/>
                             <constraint firstItem="xaU-8g-sZX" firstAttribute="trailing" secondItem="m0A-wN-NFB" secondAttribute="trailing" id="2au-tC-Sff"/>
+                            <constraint firstItem="gFr-4n-1Gz" firstAttribute="trailing" secondItem="m0A-wN-NFB" secondAttribute="trailing" id="5Kr-GS-mLZ"/>
                             <constraint firstItem="CdS-Px-nYq" firstAttribute="trailing" secondItem="wne-h4-mlI" secondAttribute="trailing" id="70T-35-XiB"/>
                             <constraint firstItem="m0A-wN-NFB" firstAttribute="top" secondItem="xaU-8g-sZX" secondAttribute="bottom" constant="45" id="F0m-aq-Otl"/>
                             <constraint firstItem="wne-h4-mlI" firstAttribute="leading" secondItem="OlJ-9B-vfo" secondAttribute="leadingMargin" id="Hey-1n-G6R"/>
+                            <constraint firstItem="gFr-4n-1Gz" firstAttribute="leading" secondItem="m0A-wN-NFB" secondAttribute="leading" id="KRz-TX-iXQ"/>
                             <constraint firstItem="xaU-8g-sZX" firstAttribute="leading" secondItem="m0A-wN-NFB" secondAttribute="leading" id="Pwa-vc-uQf"/>
                             <constraint firstItem="xaU-8g-sZX" firstAttribute="top" secondItem="OlJ-9B-vfo" secondAttribute="top" constant="272" id="Rcn-BF-Igj"/>
                             <constraint firstItem="wne-h4-mlI" firstAttribute="top" secondItem="fB7-UG-XRs" secondAttribute="bottom" constant="71" id="UAO-AG-ZEL"/>
                             <constraint firstItem="xaU-8g-sZX" firstAttribute="leading" secondItem="wne-h4-mlI" secondAttribute="leading" id="Xwe-cO-ckK"/>
+                            <constraint firstAttribute="bottom" secondItem="gFr-4n-1Gz" secondAttribute="bottom" constant="20" symbolic="YES" id="ag9-1V-f5H"/>
                             <constraint firstItem="xaU-8g-sZX" firstAttribute="trailing" secondItem="wne-h4-mlI" secondAttribute="trailing" id="dCf-B8-tZO"/>
                             <constraint firstItem="wne-h4-mlI" firstAttribute="trailing" secondItem="OlJ-9B-vfo" secondAttribute="trailingMargin" id="ffH-fQ-x2e"/>
                             <constraint firstItem="CdS-Px-nYq" firstAttribute="top" secondItem="wne-h4-mlI" secondAttribute="bottom" constant="36" id="w1U-a5-vpo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add an expense" id="fmJ-Ji-wgU"/>
+                    <connections>
+                        <outlet property="expenseAmount" destination="CdS-Px-nYq" id="FtW-PZ-K1c"/>
+                        <outlet property="expenseName" destination="wne-h4-mlI" id="SLr-yu-Nev"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52s-Ga-Sf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
