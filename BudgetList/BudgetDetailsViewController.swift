@@ -10,10 +10,13 @@ import UIKit
 
 class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     
+    @IBOutlet weak var walletBalance: UILabel!
     var expense = [Expense]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //walletBalance.text = navigationItem.title
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
