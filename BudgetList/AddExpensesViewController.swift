@@ -20,11 +20,12 @@ class AddExpensesViewController: UIViewController {
     @IBOutlet weak var expenseAmount: UITextField!
     
     @IBAction func saveExpenseContent(_ sender: UIButton) {
-        delegate?.enteredExpenseData(info: expenseName.text!, info2: Int(expenseAmount.text!)!)
-        _ = self.navigationController?.popViewController(animated: true)
-        
+        if ((expenseName.text?.isEmpty)! && (expenseAmount.text?.isEmpty)!) {
+            _ = self.navigationController?.popViewController(animated: true)
+        } else {
+            delegate?.enteredExpenseData(info: expenseName.text!, info2: Int(expenseAmount.text!)!)
+            _ = self.navigationController?.popViewController(animated: true)
+        }
     }
-    
-
 }
 

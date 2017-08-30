@@ -21,8 +21,12 @@ class AddBudgetViewController: UIViewController {
     
     //
     @IBAction func saveContent(_ sender: UIButton) {
-        delegate?.enteredBudgetData(info: budgetName.text!, info2: Int(budgetAmount.text!)!)
-        _ = self.navigationController?.popViewController(animated: true)
+        if ((budgetName.text?.isEmpty)! && (budgetAmount.text?.isEmpty)!) {
+            _ = self.navigationController?.popViewController(animated: true)
+        } else {
+            delegate?.enteredBudgetData(info: budgetName.text!, info2: Int(budgetAmount.text!)!)
+            _ = self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
