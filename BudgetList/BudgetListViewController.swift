@@ -55,7 +55,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     @IBAction func cancelTapped(segue: UIStoryboardSegue)
     {}
 
-    func enteredBudgetData(info: String, info2: Int) {
+    func enteredBudgetData(info: String, info2: String) {
         budget.append(Budget(nameField: info, amountField: info2))
         tableView.reloadData()
     }
@@ -65,9 +65,9 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         let row = indexPath.row
         print("ROW: \(row)")
     }
-    
-    // MARK: - Subtitle on UINavigationBar
 }
+
+// MARK: - Subtitle on UINavigationBar
 
 extension UINavigationItem {
     

@@ -15,8 +15,6 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //walletBalance.text = navigationItem.title
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,9 +48,17 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
         return cell
     }
     
-    func enteredExpenseData(info: String, info2: Int) {
+    func enteredExpenseData(info: String, info2: String) {
         expense.append(Expense(expenseName: info, expenseAmount: info2))
         tableView.reloadData()
     }
+    
+    // MARK: - Calculate wallet
+    
+    func calculateWalletBudget(budget: String, expense: String) {
+        
+    }
 }
+
+
 

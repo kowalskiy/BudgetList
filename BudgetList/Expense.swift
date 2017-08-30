@@ -11,5 +11,5 @@ import Foundation
 struct Expense {
     
     let expenseName: String
-    let expenseAmount: Int
+    let expenseAmount: String
 }

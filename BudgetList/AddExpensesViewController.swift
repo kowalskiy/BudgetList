@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ExpenseDelegate: class {
-    func enteredExpenseData(info: String, info2: Int)
+    func enteredExpenseData(info: String, info2: String)
 }
 class AddExpensesViewController: UIViewController {
     
@@ -23,7 +23,7 @@ class AddExpensesViewController: UIViewController {
         if ((expenseName.text?.isEmpty)! && (expenseAmount.text?.isEmpty)!) {
             _ = self.navigationController?.popViewController(animated: true)
         } else {
-            delegate?.enteredExpenseData(info: expenseName.text!, info2: Int(expenseAmount.text!)!)
+            delegate?.enteredExpenseData(info: expenseName.text!, info2: expenseAmount.text!)
             _ = self.navigationController?.popViewController(animated: true)
         }
     }
