@@ -14,6 +14,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,11 +27,6 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         if let destinationViewController = segue.destination as? AddBudgetViewController {
             destinationViewController.delegate = self
         }
-        
-        // pass cell's label to detailVC
-        let destinationVC = segue.destination as? BudgetDetailsViewController
-        let cell = sender as? BudgetCell
-        destinationVC?.navigationItem.setTitle(title:(cell?.budgetNameLabel.text?.capitalized)!, subtitle:(cell?.detailTextLabel?.text)!)
     }
    
     // MARK: - UITableViewDataSource
@@ -48,7 +44,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         let budgets = budget[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
             cell.budgetNameLabel.text = budgets.nameField
-            cell.detailTextLabel?.text = ("$") + String(budgets.amountField)
+            cell.detailTextLabel?.text = ("$") + budgets.amountField
             return cell
     }
 
@@ -61,9 +57,17 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         print("ROW: \(row)")
+        
+        //
+        let budget = self.budget[indexPath.row]
+        let viewController = UIStoryboard(name:"BudgetList", bundle: nil).instantiateViewController(withIdentifier: "DetailsController") as! BudgetDetailsViewController
+        viewController.budgets = budget
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

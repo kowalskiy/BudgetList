@@ -12,9 +12,18 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     
     @IBOutlet weak var walletBalance: UILabel!
     var expense = [Expense]()
+    var budgets: Budget! {
+        didSet {
+            if isViewLoaded {
+                calculateWalletBudget(budget: <#T##String#>, expense: <#T##String#>)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.setTitle(title: budgets.nameField.capitalized, subtitle: ("$") + budgets.amountField)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,7 +53,7 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
         let expenses = expense[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell") as! ExpenseCell
         cell.textLabel?.text = expenses.expenseName
-        cell.detailTextLabel?.text = ("$") + String(expenses.expenseAmount)
+        cell.detailTextLabel?.text = ("$") + expenses.expenseAmount
         return cell
     }
     
@@ -56,7 +65,7 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     // MARK: - Calculate wallet
     
     func calculateWalletBudget(budget: String, expense: String) {
-        
+    
     }
 }
 
