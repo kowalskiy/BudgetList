@@ -65,7 +65,6 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     // MARK: - Calculate wallet
     
     func calculateWalletBudget(budget: String, expense: String) {
-    
     }
 }
 
