@@ -14,7 +14,6 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,28 +42,24 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         
         let budgets = budget[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
-            cell.budgetNameLabel.text = budgets.nameField
-            cell.detailTextLabel?.text = ("$") + budgets.amountField
-            return cell
+        cell.textLabel?.text = budgets.name
+        cell.detailTextLabel?.text = ("$" + String(budgets.total))
+        return cell
     }
 
-    @IBAction func cancelTapped(segue: UIStoryboardSegue)
-    {}
-
-    func enteredBudgetData(info: String, info2: String) {
-        budget.append(Budget(nameField: info, amountField: info2))
+    func enteredBudgetData(info: String, info2: Int) {
+        budget.append(Budget(name: info, total: info2, expenses: []))
         tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         print("ROW: \(row)")
         
         //
         let budget = self.budget[indexPath.row]
-        let viewController = UIStoryboard(name:"BudgetList", bundle: nil).instantiateViewController(withIdentifier: "DetailsController") as! BudgetDetailsViewController
+        let viewController = UIStoryboard(name:"BudgetDetail", bundle: nil).instantiateViewController(withIdentifier: "BudgetDetailsScene") as! BudgetDetailsViewController
         viewController.budgets = budget
         
         navigationController?.pushViewController(viewController, animated: true)
@@ -101,3 +96,8 @@ extension UINavigationItem {
     }
 }
 
+extension UINavigationController {
+    func pop(animated: Bool) {
+        _ = self.popViewController(animated: animated)
+    }
+}

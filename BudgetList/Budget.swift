@@ -10,6 +10,15 @@ import Foundation
 
 struct Budget {
     
-    let nameField: String
-    let amountField: String
+    let name: String
+    let total: Int
+    var expenses: [Expense]
+    
+    var balance: Int {
+        var amount: Int = total
+        for expense in expenses {
+            amount -= (expense.amount)
+        }
+        return amount
+    }
 }

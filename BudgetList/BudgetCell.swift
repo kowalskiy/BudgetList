@@ -9,6 +9,4 @@
 import UIKit
 
 class BudgetCell: UITableViewCell {
-
-    @IBOutlet weak var budgetNameLabel: UILabel!
 }

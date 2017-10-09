@@ -9,24 +9,23 @@
 import UIKit
 
 protocol BudgetDelegate: class {
-    func enteredBudgetData(info: String, info2: String)
+    func enteredBudgetData(info: String, info2: Int)
 }
 
 class AddBudgetViewController: UIViewController {
     
     weak var delegate: BudgetDelegate? = nil
-
+    
     @IBOutlet weak var budgetName: UITextField!
     @IBOutlet weak var budgetAmount: UITextField!
     
-    //
+    // callback
     @IBAction func saveContent(_ sender: UIButton) {
         if ((budgetName.text?.isEmpty)! && (budgetAmount.text?.isEmpty)!) {
-            _ = self.navigationController?.popViewController(animated: true)
+            navigationController?.pop(animated: true)
         } else {
-            delegate?.enteredBudgetData(info: budgetName.text!, info2: budgetAmount.text!)
-            _ = self.navigationController?.popViewController(animated: true)
+            delegate?.enteredBudgetData(info: budgetName.text!, info2: Int(budgetAmount.text!) ?? 0)
+            navigationController?.pop(animated: true)
         }
     }
-    
 }

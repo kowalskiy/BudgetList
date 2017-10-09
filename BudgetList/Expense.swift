@@ -10,6 +10,6 @@ import Foundation
 
 struct Expense {
     
-    let expenseName: String
-    let expenseAmount: String
+    let name: String
+    let amount: Int
 }
