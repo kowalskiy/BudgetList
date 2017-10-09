@@ -41,6 +41,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="amountLabel" destination="ZC2-ch-Muf" id="5P2-kF-BO5"/>
+                                    <outlet property="nameLabel" destination="JBR-jd-tBu" id="RwT-io-Dvh"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BalanceCell" textLabel="09b-wi-U8U" style="IBUITableViewCellStyleDefault" id="M9I-gw-69J" customClass="BalanceCell" customModule="BudgetList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>

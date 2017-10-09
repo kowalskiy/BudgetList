@@ -16,7 +16,7 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.setTitle(title: (budgets.name.capitalized), subtitle: ("$" + String(describing: budgets.total)))
+        navigationItem.setTitle(title: budgets.name.capitalized, subtitle: ("$" + String(budgets.total)))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,10 +43,8 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < expenses.count {
-            let expense = expenses[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell") as! ExpenseCell
-            cell.textLabel?.text = expense.name
-            cell.detailTextLabel?.text = ("$") + String(expense.amount)
+            cell.expense = expenses[indexPath.row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceCell") as! BalanceCell
@@ -64,6 +62,12 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
 }
 
 
+//     let expense = expenses[indexPath.row]
+//   cell.textLabel?.text = expense.name
+//    cell.detailTextLabel?.text = ("$") + String(expense.amount)
+
+
+// OLD
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
 //        let expense = expenses[indexPath.row]

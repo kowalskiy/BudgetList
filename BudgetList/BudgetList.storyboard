@@ -41,6 +41,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="c0S-SQ-dlm" id="lSp-KR-aYK"/>
+                                    <outlet property="totalLabel" destination="4bc-7S-ywB" id="94c-oy-itf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

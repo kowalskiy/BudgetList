@@ -12,7 +12,7 @@ struct Budget {
     
     let name: String
     let total: Int
-    var expenses: [Expense]
+    var expenses: [Expense] = []
     
     var balance: Int {
         var amount: Int = total

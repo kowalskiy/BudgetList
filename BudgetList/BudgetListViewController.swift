@@ -10,7 +10,7 @@ import UIKit
 
 class BudgetListViewController: UITableViewController, BudgetDelegate {
     
-    var budget = [Budget]()
+    var budgets = [Budget]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,16 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
             destinationViewController.delegate = self
         }
     }
+    
+    func enteredBudgetData(info: String, info2: Int) {
+        budgets.append(Budget(name: info, total: info2, expenses: []))
+        tableView.reloadData()
+    }
    
     // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return budget.count
+        return budgets.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,26 +44,19 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let budgets = budget[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
-        cell.textLabel?.text = budgets.name
-        cell.detailTextLabel?.text = ("$" + String(budgets.total))
-        return cell
-    }
 
-    func enteredBudgetData(info: String, info2: Int) {
-        budget.append(Budget(name: info, total: info2, expenses: []))
-        tableView.reloadData()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
+        cell.budget = budgets[indexPath.row]
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         print("ROW: \(row)")
-        
+       
         //
-        let budget = self.budget[indexPath.row]
+        let budget = self.budgets[indexPath.row]
         let viewController = UIStoryboard(name:"BudgetDetail", bundle: nil).instantiateViewController(withIdentifier: "BudgetDetailsScene") as! BudgetDetailsViewController
         viewController.budgets = budget
         
@@ -101,3 +99,15 @@ extension UINavigationController {
         _ = self.popViewController(animated: animated)
     }
 }
+
+//        let budget = self.budgets[indexPath.row]
+//        let viewController = UIStoryboard(name:"BudgetDetail", bundle: nil).instantiateViewController(withIdentifier: "BudgetDetailsScene") as! BudgetDetailsViewController
+//        viewController.budgets = budget
+//
+//        navigationController?.pushViewController(viewController, animated: true)
+
+
+
+//        let budget = budgets[indexPath.row]
+//        cell.textLabel?.text = budget.name
+//        cell.detailTextLabel?.text = ("$" + String(describing: budget.total))

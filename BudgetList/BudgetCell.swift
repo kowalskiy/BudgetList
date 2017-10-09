@@ -9,4 +9,16 @@
 import UIKit
 
 class BudgetCell: UITableViewCell {
+   
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    
+    var budget: Budget? {
+        didSet {
+            nameLabel.text = budget?.name.capitalized
+            if let total = budget?.total {
+                totalLabel.text = "$ " + String(total)
+            }
+        }
+    }
 }
