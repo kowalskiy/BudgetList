@@ -8,15 +8,19 @@
 
 import UIKit
 
+protocol BudgetDetailsViewDelegate: class {
+    func budgetDetailsViewDidUpdateBudget(budget: Budget)
+}
+
 class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     
-    var budgets: Budget!
-    var expenses = [Expense]()
+    var budget: Budget!
+    weak var delegate: BudgetDetailsViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.setTitle(title: budgets.name.capitalized, subtitle: ("$" + String(budgets.total)))
+        navigationItem.setTitle(title: budget.name.capitalized, subtitle: ("$" + String(budget.total)))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,26 +42,25 @@ class BudgetDetailsViewController: UITableViewController, ExpenseDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expenses.count + 1
+        return budget.expenses.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < expenses.count {
+        if indexPath.row < budget.expenses.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell") as! ExpenseCell
-            cell.expense = expenses[indexPath.row]
+            cell.expense = budget.expenses[indexPath.row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceCell") as! BalanceCell
-            if let budget = budgets {
-                cell.textLabel?.text = "Wallet Balance: $\(budget.balance)"
-            }
+            cell.textLabel?.text = "Wallet Balance: \(budget.balance.formmatedCurrency)"
             return cell
         }
     }
     
     func enteredExpenseData(info: String, info2: Int) {
-        expenses.append(Expense(name: info, amount: info2))
+        budget.expenses.append(Expense(name: info, amount: info2))
         tableView.reloadData()
+        delegate?.budgetDetailsViewDidUpdateBudget(budget: budget)
     }
 }
 

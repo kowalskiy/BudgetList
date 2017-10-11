@@ -16,9 +16,7 @@ class BudgetCell: UITableViewCell {
     var budget: Budget? {
         didSet {
             nameLabel.text = budget?.name.capitalized
-            if let total = budget?.total {
-                totalLabel.text = "$ " + String(total)
-            }
+            totalLabel.text = budget?.budgetListDisplayText
         }
     }
 }

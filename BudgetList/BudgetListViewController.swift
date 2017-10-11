@@ -29,7 +29,8 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     }
     
     func enteredBudgetData(info: String, info2: Int) {
-        budgets.append(Budget(name: info, total: info2, expenses: []))
+        let budget = Budget(id: budgets.count, name: info, total: info2, expenses: [])
+        budgets.append(budget)
         tableView.reloadData()
     }
    
@@ -58,9 +59,22 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         //
         let budget = self.budgets[indexPath.row]
         let viewController = UIStoryboard(name:"BudgetDetail", bundle: nil).instantiateViewController(withIdentifier: "BudgetDetailsScene") as! BudgetDetailsViewController
-        viewController.budgets = budget
+        viewController.delegate = self
+        viewController.budget = budget
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension BudgetListViewController: BudgetDetailsViewDelegate {
+    func budgetDetailsViewDidUpdateBudget(budget: Budget) {
+        for (index, existingBudget) in budgets.enumerated() {
+            if existingBudget.id == budget.id {
+                budgets[index] = budget
+                break
+            }
+        }
+        tableView.reloadData()
     }
 }
 
