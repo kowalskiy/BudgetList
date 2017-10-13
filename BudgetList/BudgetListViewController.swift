@@ -29,7 +29,8 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     }
     
     func enteredBudgetData(info: String, info2: Int) {
-        budgets.append(Budget(name: info, total: info2, expenses: []))
+        let budget = Budget(id: budgets.count, name: info, total: info2, expenses: [])
+        budgets.append(budget)
         tableView.reloadData()
     }
    
@@ -45,7 +46,7 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell") as! BudgetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetListCell") as! BudgetCell
         cell.budget = budgets[indexPath.row]
         return cell
     }
@@ -55,19 +56,32 @@ class BudgetListViewController: UITableViewController, BudgetDelegate {
         let row = indexPath.row
         print("ROW: \(row)")
        
-        //
         let budget = self.budgets[indexPath.row]
         let viewController = UIStoryboard(name:"BudgetDetail", bundle: nil).instantiateViewController(withIdentifier: "BudgetDetailsScene") as! BudgetDetailsViewController
-        viewController.budgets = budget
+        viewController.delegate = self
+        viewController.budget = budget
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: - Calculate index for budget
+
+extension BudgetListViewController: BudgetDetailsViewDelegate {
+    func budgetDetailsViewDidUpdateBudget(budget: Budget) {
+        for (index, existingBudget) in budgets.enumerated() {
+            if existingBudget.id == budget.id {
+                budgets[index] = budget
+                break
+            }
+        }
+        tableView.reloadData()
     }
 }
 
 // MARK: - Subtitle on UINavigationBar
 
 extension UINavigationItem {
-    
     func setTitle(title:String, subtitle:String) {
         
         let titleLabel = UILabel()
@@ -89,7 +103,6 @@ extension UINavigationItem {
         stackView.frame = CGRect(x: 0, y: 0, width: width, height: 35)
         
         stackView.alignment = .center
-    
         self.titleView = stackView
     }
 }
@@ -99,15 +112,3 @@ extension UINavigationController {
         _ = self.popViewController(animated: animated)
     }
 }
-
-//        let budget = self.budgets[indexPath.row]
-//        let viewController = UIStoryboard(name:"BudgetDetail", bundle: nil).instantiateViewController(withIdentifier: "BudgetDetailsScene") as! BudgetDetailsViewController
-//        viewController.budgets = budget
-//
-//        navigationController?.pushViewController(viewController, animated: true)
-
-
-
-//        let budget = budgets[indexPath.row]
-//        cell.textLabel?.text = budget.name
-//        cell.detailTextLabel?.text = ("$" + String(describing: budget.total))

@@ -17,7 +17,7 @@ class ExpenseCell: UITableViewCell {
         didSet {
             nameLabel.text = expense?.name
             if let amount = expense?.amount {
-                amountLabel.text = "$ \(String(amount))"
+                amountLabel.text = amount.formatedCurrency
             }
         }
     }

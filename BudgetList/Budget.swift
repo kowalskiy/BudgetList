@@ -10,9 +10,10 @@ import Foundation
 
 struct Budget {
     
+    var id: Int
     let name: String
     let total: Int
-    var expenses: [Expense] = []
+    var expenses = [Expense]()
     
     var balance: Int {
         var amount: Int = total
@@ -20,5 +21,17 @@ struct Budget {
             amount -= (expense.amount)
         }
         return amount
+    }
+}
+
+extension Budget {
+    var budgetDisplayText: String {
+        return "Total: " + total.formatedCurrency + "/Balance: " + balance.formatedCurrency
+    }
+}
+
+extension Int {
+    var formatedCurrency: String {
+        return "$" + String(self)
     }
 }
